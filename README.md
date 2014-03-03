@@ -3,13 +3,12 @@ Phaser CocoonJS-Ouya Gamepad Plugin
 
 **Phaser CocoonJS-Ouya Gamepad Plugin**
 
-- Emulates parts of the Phaser.Gamepad interface with overrides for a number of Phaser.SinglePad functions designed specifically for known gamepad value issues while running under CocoonJS on the Ouya.
+- Adds Phaser.OuyaGamepad and Phaser.OuyaSinglePad objects that mirror Phaser.Gamepad and Phaser.SinglePad, but with changes to match CocoonJS' needs. 
 
-- Adds a radial deadzone algorithm for detection of values normalized within the deadzone.
+- Adds a radial deadzone algorithm for detection of values normalized within axis deadzones.
 
 - Extends number of possible gamepads from 4 (Phaser default) to the full 11 the Ouya is capable of supporting at once.
 
 
 **Known Problems**
- - Callback functions return 'undefined' for their 'this._index' values
- - 'this.game' is 'undefined' within overrided Phaser.SinglePad function 
+ - Duration tracking of input values does not match plugin's internal time and is, instead, still set by 'this.game.time.now'.
